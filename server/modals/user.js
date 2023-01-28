@@ -27,34 +27,17 @@ var userSchema = new Schema({
         default: 0,
     },
     enter: [
-        {
-        type: Boolean,
-        default: false,
-        time: Date,
-        },
-        {
-            type: Date,
-        }
+        
     ],
     wallet: {
         type: Number,
         default: 0
     },
-    exit : [
-        {
-            type: Boolean,
-            default: true,
-            time: Date,
-        },
-        {
-            type: Date,
-        }
-    ],
     transactions: [{
         amount: Number,
         time: Date,
-        boarding: Number,
-        destination: Number
+        boarding: String,
+        destination: String
     }],
     walletTransactions: [ {
         amount: Number,
@@ -64,13 +47,16 @@ var userSchema = new Schema({
         razorpay_order_id: String,
     }],
     sourceStation: {
-        type: Schema.Types.ObjectId
+        type: String,
+
     },
-    destinationStation: {
-        type: Schema.Types.ObjectId
-    },
+    creationTime: {
+        type:  Date,
+        default: new Date(),
+    }
+   
     
     
-},{timestamps: true})
+})
 
 module.exports = mongoose.model('User',userSchema)

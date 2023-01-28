@@ -34,6 +34,11 @@ exports.signup = (req,res) => {
                 password: has,
     
             })
+            // setting the admin
+            if(req.body.role)
+            {
+                newUser.role = 1
+            }
     
             newUser.save()
             .then( person => res.status(200).json({success: true,name: person.name, email: person.email,password: person.password}))
@@ -46,6 +51,7 @@ exports.signup = (req,res) => {
 }
 
 exports.signin = (req,res) => {
+    console.log(req.body)
     // basic validations
     const errors = validationResult(req)
     if(!errors.isEmpty())
@@ -73,7 +79,8 @@ exports.signin = (req,res) => {
                 name: user.name,
                 email: user.email,
                 _id: user._id,
-                role: user.role
+                role: user.role,
+                amount: user.wallet
             }, process.env.SECRET)
 
             // setting the token in the cokkie of users brower
@@ -118,7 +125,7 @@ exports.isAdmin = (req,res,next) => {
 
     if(req.auth.role === 0)
    return res.status(403).json({
-        error: "Access Denied. You are not Admi"
+        error: "Access Denied. You are not Admin"
     })
 
     next();
