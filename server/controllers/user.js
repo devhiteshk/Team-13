@@ -17,7 +17,7 @@ const stations = {
 
 const updateInJourney = (req,res,name) => {
     // user is stored in req.auth
-
+    console.log("in the rehte")
     User.findById(req.auth._id)
     .then((user) => {
 
