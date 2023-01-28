@@ -73,7 +73,8 @@ exports.signin = (req,res) => {
                 name: user.name,
                 email: user.email,
                 _id: user._id,
-                role: user.role
+                role: user.role,
+                amount: user.wallet
             }, process.env.SECRET)
 
             // setting the token in the cokkie of users brower

@@ -12,10 +12,10 @@ exports.generateQr = (req,res) =>
 
     new QrSchema({ name: req.body.name , inQr: qr_svg_in, outQr: qr_svg_out }).save( (err) => {
         if (err) {
-            res.send({ success: false, message: 'Something went Wrong'})
+            res.status(200).json({ success: false, message: 'Something went Wrong'})
             return;
         };
-        res.send({ success: true, message: 'QR code inserted into MongoDB'});
+        res.status(500).json({ success: true, message: 'QR code inserted into MongoDB'});
       })
 
 }
