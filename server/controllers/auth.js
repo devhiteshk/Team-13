@@ -72,7 +72,8 @@ exports.signin = (req,res) => {
             const token = jwt.sign({
                 name: user.name,
                 email: user.email,
-                _id: user._id
+                _id: user._id,
+                role: user.role
             }, process.env.SECRET)
 
             // setting the token in the cokkie of users brower
@@ -113,9 +114,12 @@ exports.isAuthenticated = (req,res,next) => {
 }
 
 exports.isAdmin = (req,res,next) => {
-    if(req.profile.role === 0)
+    console.log(req.auth)
+
+    if(req.auth.role === 0)
    return res.status(403).json({
         error: "Access Denied. You are not Admi"
     })
+
     next();
 }
