@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.gharkakhana.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.gharkakhana.ui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_navigatorFragment"
+            app:destination="@id/navigatorFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_rechargeFragment"
+            app:destination="@id/rechargeFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_scannerFragment"
+            app:destination="@id/scannerFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_subscriptionsFragment"
+            app:destination="@id/subscriptionsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_travelHistoryFragment"
+            app:destination="@id/travelHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rechargeFragment"
+        android:name="com.example.gharkakhana.ui.RechargeFragment"
+        android:label="fragment_recharge"
+        tools:layout="@layout/fragment_recharge" />
+    <fragment
+        android:id="@+id/navigatorFragment"
+        android:name="com.example.gharkakhana.ui.NavigatorFragment"
+        android:label="fragment_navigator"
+        tools:layout="@layout/fragment_navigator" />
+    <fragment
+        android:id="@+id/scannerFragment"
+        android:name="com.example.gharkakhana.ui.ScannerFragment"
+        android:label="fragment_scanner"
+        tools:layout="@layout/fragment_scanner" />
+    <fragment
+        android:id="@+id/subscriptionsFragment"
+        android:name="com.example.gharkakhana.ui.SubscriptionsFragment"
+        android:label="fragment_subscriptions"
+        tools:layout="@layout/fragment_subscriptions" />
+    <fragment
+        android:id="@+id/travelHistoryFragment"
+        android:name="com.example.gharkakhana.ui.TravelHistoryFragment"
+        android:label="fragment_travel_history"
+        tools:layout="@layout/fragment_travel_history" />
+</navigation>
